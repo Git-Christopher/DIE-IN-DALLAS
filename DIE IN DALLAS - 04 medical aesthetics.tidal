@@ -1,0 +1,669 @@
+hush
+
+
+do
+{
+let sync = "[<t*4 [t*2 t]>] [f t] [] []"
+    sync' = "[<t*4 [t*2 t]>] [f t] [] [~ t]"
+    sync'' = "[<t*3 [t*2 t]>] [f t] [] []"
+    sync''' = "[<t*4 [t*3]>] [f t] [] []"
+in
+d1
+$ trigger 1
+$ seqPLoop [
+(0, 8, stack [
+  chop 8 $
+  n "<bf4'm7 [fs'maj af'maj] df6'sus2 [fs'maj9 af'six]>" #
+  s "supermandolin" #
+  octave 4 #
+  gain 1.4
+, struct (sync) $
+  n (segment 2 $ irand 8) #
+  s "808"
+, struct "[0 1]*2" $
+  s "cp"
+  ]),
+(8, 16, stack [
+  struct (sync) $
+  n "bf" #
+  s "superchip" #
+  octave 2 #
+  gain 1.2
+, struct (sync) $
+  s "clubkick"
+, struct "[0 1]*2" $
+  s "cp"
+, struct "t*16?" $
+  n (segment 16 $ irand 8) #
+  s "linnhats" #
+  gain 0.88
+  ]),
+(16, 24, stack [
+  while "<f t>" (# gain 0) $
+  off 0.25 (|+ n "<7 -7 0>") $
+  n (scale "hexDorian" "{[3 -1] [4 2] [5 0]}" + "bf") #
+  s "supersquare" #
+  legato 0.5 #
+  octave "<[4 5 4]>" #
+  gain 0.89
+, chop 8 $
+  n "<bf4'm7 [~]>" #
+  s "superchip" #
+  octave 4 #
+  gain 0.87
+, struct (sync) $
+  n "<bf ef6 bf fs>" #
+  s "superchip" #
+  octave 2 #
+  gain 1.2
+, struct (sync) $
+  s "clubkick"
+, struct "[0 1]*2" $
+  s "cp"
+, struct "<t*16? [[t*6 t*3] [t*6 t*4]]>" $
+  s "linnhats" #
+  gain 0.88
+  ]),
+(24, 32, stack [
+  someCycles (off 0.5 (# s "supersaw")) $
+  degradeBy 0.25 $
+  off 0.25 (|+ n "<7 -7 0>") $
+  n (scale "hexDorian" "{[3 -1] [4 2] [5 0]}" + "bf") #
+  s "supersquare" #
+  legato 0.5 #
+  octave "<[4 5 4] [5 4 5]>" #
+  gain 0.89
+, struct (sync') $
+  n "<bf4'm7 [fs'maj af'maj] df6'sus2 [fs'maj9 af'six]>" #
+  s "superchip" #
+  octave 4 #
+  gain 0.87
+, struct (sync) $
+  n "<bf ef6 b fs>" #
+  s "superchip" #
+  octave 2 #
+  gain 1.2
+, struct (sync) $
+  s "clubkick"
+, struct "[0 1]*2" $
+  s "cp"
+, struct "t*16?" $
+  n (segment 16 $ irand 8) #
+  s "linnhats" #
+  gain 0.88
+  ]),
+(32, 40, iter 2 $ stack [
+  while "<f t>" (# gain 0) $
+  off 0.25 (|+ n "<7 -7 0>") $
+  n (scale "hexDorian" "{[3 -1] [4 2] [5 0]}" + "bf") #
+  s "supersquare" #
+  legato 0.5 #
+  octave "<[4 5 4]>" #
+  gain 0.89
+, n "{[f*4]@3 fs, <af!15 bf>}%4" #
+  s "supermandolin" #
+  gain 1.4
+  ]),
+(40, 48, iter 2 $ stack [
+  n "{[f*4]@3 fs, <af!15 bf>}%4" #
+  s "supermandolin" #
+  gain 1.4
+, struct (sync) $
+  n "<f!4 fs!2 af bf>" #
+  s "superchip" #
+  octave 2 #
+  gain 1.2
+, stack [
+    struct (sync) $
+    s "clubkick"
+  , struct "[0 1]*2" $
+    s "cp"
+  , struct "t*16?" $
+    n (segment 2 $ run 2 + "4") #
+    s "linnhats" #
+    gain 0.88
+    ]
+  ]),
+(48, 56, stack [
+  n "{[f*4]@3 fs, <af!15 bf>}%4" #
+  s "<supergrind>" #
+  legato "0.25!2 1" #
+  gain 1 #
+  voice (range 0 3 $ slow 16 sine)
+, chop 16 $
+  n "<f'm7!4 fs4'maj9!2 af'six bf4'm7>" #
+  s "superchip" #
+  legato 0.5 #
+  octave 4 #
+  gain 0.84
+, struct (sync) $
+  n "<f!4 fs!2 af bf>" #
+  s "superchip" #
+  octave 2 #
+  gain 1.2
+, stack [
+    struct (sync) $
+    s "clubkick"
+  , struct "[0 1]*2" $
+    s "cp"
+  , struct "t*16?" $
+    n (segment 2 $ run 2 + "4") #
+    s "linnhats" #
+    gain 0.88
+    ]
+  ]),
+(56, 64, stack [
+  n "{[f*4]@3 fs, <af!15 bf>}%4" #
+  s "<supergrind>" #
+  legato "0.25!2 1" #
+  gain 1 #
+  voice (range 0 3 $ slow 16 sine)
+, n "<fs'sus2 [ef'm7 f'min] []!2>" #
+  s "supertron" #
+  legato 1 #
+  octave 4 #
+  gain 0.66
+, struct (sync) $
+  n "<bf ef fs ef>" #
+  s "superchip" #
+  octave 2 #
+  gain 1.2
+, stack [
+    struct (sync) $
+    s "clubkick"
+  , struct "[0 1]*2" $
+    s "cp"
+  , struct "t*16?" $
+    n (segment 2 $ run 2 + "4") #
+    s "linnhats" #
+    gain 0.88
+    ]
+  ]),
+(64, 72, stack [
+  struct (sync) $
+  n "{[f*4]@3 fs, <af!15 bf>}%4" #
+  s "<supergrind>" #
+  legato "1" #
+  gain 0.92 #
+  voice (range 1 3 $ slow 16 sine)
+, struct (sync) $
+  n "<fs'sus2 [ef'm7 f'min] []!2>" #
+  s "supertron" #
+  legato 1 #
+  octave 4 #
+  gain 0.66
+, struct (sync) $
+  n "<bf ef fs ef>" #
+  s "superchip" #
+  octave 2 #
+  gain 1.2
+  ]),
+(72, 88, stack [
+  struct (sync'') $
+  n "{[f*4]@3 fs, <af!15 bf>}%4" #
+  s "<supergrind>" #
+  legato "<0.5 1 1.5 2>" #
+  gain 0.92 #
+  voice (range 1 3 $ slow 16 sine)
+, struct (sync'') $
+  n "<fs'sus2 [ef'm7 f'min] []!2>" #
+  s "supertron" #
+  legato 1 #
+  octave 4 #
+  gain 0.66
+, struct (sync'') $
+  n "<bf ef fs ef>" #
+  s "superchip" #
+  octave 2 #
+  gain 1.2
+, stack [
+   struct (sync'') $
+   s "clubkick"
+  , struct "[0 1]*2" $
+    s "~ cp" #
+    gain 1.2
+  , struct "<t*16 [t*12 t*8]>" $
+    n (segment 4 $ run 1 + "<5 1 4>") #
+    s "linnhats" #
+    gain 0.88
+    ]
+  ]),
+(88, 104, stack [
+  mask "100111111" $
+  ply 2 $
+  n (scale "hexPhrygian" "{[7 <0 ~>] [1] [<[-3 4] 9> 2] [<4 [-2 -3]>]}" + "c") #
+  s "<supertron>" #
+  legato 0.5 #
+  octave "<5!4 4!4>" #
+  gain 0.77 #
+  detune (range 0 4 $ slow 4 sine)
+, struct (sync''') $
+  n "<fs'sus2 [ef'm7 f'min] []!2>" #
+  s "supergrind" #
+  legato 1 #
+  octave 3 #
+  voice 4 #
+  gain 0.87
+, struct (sync''') $
+  n "<bf ~ fs ~>" #
+  s "superchip" #
+  octave 2 #
+  gain 1.2
+, stack [
+   struct (sync''') $
+   s "clubkick"
+  , s "~ cp" #
+    gain 1.2
+  , struct "<t*16>" $
+    s "linnhats" #
+    gain 0.88
+    ]
+  ]),
+(88, 104, stack [
+  mask "100111111" $
+  ply 2 $
+  n (scale "hexPhrygian" "{[7 <0 ~>] [1] [<[-3 4] 9> 2] [<4 [-2 -3]>]}" + "c") #
+  s "<supertron>" #
+  legato 0.5 #
+  octave "<5!4 4!4>" #
+  gain 0.77 #
+  detune (range 0 4 $ slow 4 sine)
+, struct (sync''') $
+  n "<fs'sus2 [ef'm7 f'min] []!2>" #
+  s "supergrind" #
+  legato 1 #
+  octave 3 #
+  voice 4 #
+  gain 0.87
+, struct (sync''') $
+  n "<bf ~ fs ~>" #
+  s "superchip" #
+  octave 2 #
+  gain 1.2
+, stack [
+   struct (sync''') $
+   s "clubkick"
+  , s "~ cp" #
+    gain 1.2
+  , struct "<t*16>" $
+    s "linnhats" #
+    gain 0.88
+    ]
+  ]),
+(104, 112, stack [
+  mask "100111111" $
+  ply 2 $
+  n (scale "hexPhrygian" "{[7 <0 ~>] [1] [<[-3 4] 9> 2] [<4 [-2 -3]>]}" + "c") #
+  s "<supertron>" #
+  legato 0.5 #
+  octave "<5!4 4!4>" #
+  gain 0.77 #
+  detune (range 0 4 $ slow 4 sine)
+, off 0.25 (slow 4) $
+  bite 8 (segment 16 $ irand 4) $
+  n (arp "down up" "fs'6by9'8") #
+  s "<superhoover>" #
+  legato 0.25 #
+  octave 4 #
+  gain 1
+, struct (sync') $
+  n "<fs'sus2 [ef'm7 f'min] []!2>" #
+  s "supergrind" #
+  legato 1 #
+  octave 3 #
+  voice 4 #
+  gain 0.87
+, struct (sync') $
+  n "<bf ~ fs ~>" #
+  s "superchip" #
+  octave 2 #
+  gain 1.2
+, stack [
+   struct (sync') $
+   s "clubkick"
+   ]
+  ]),
+(112, 120, stack [
+  bite 8 (segment 16 $ irand 8) $
+  n (scale "major" "[0 .. 7]" + "df") #
+  s "<supertron>" #
+  legato (range 0.25 1 $ slow 32 sine) #
+  octave "4 5" #
+  gain 0.72
+, off 0.25 (slow 4) $
+  bite 8 (segment 16 $ irand 4) $
+  n (arp "down up" "fs'6by9'8") #
+  s "<superhoover>" #
+  legato 0.25 #
+  octave 4 #
+  gain 1
+  ]),
+(120, 136, stack [
+  bite 8 (segment 16 $ irand 8) $ n (scale "major" "[0 .. 7]" + "df") #
+  s "<supertron>" #
+  legato (range 0.25 1 $ slow 32 sine) #
+  octave "4 5" #
+  gain 0.72
+, off 0.25 (slow 4) $
+  bite 8 (segment 16 $ irand 4) $
+  n (arp "down up" "fs'6by9'8") #
+  s "<superhoover>" #
+  legato 0.25 #
+  octave 4 #
+  gain 1
+, struct (sync') $
+  n "<af'sus2 ~ fs'sus2 ~ f'min ~ ef'm7 ~>" #
+  s "superzow" #
+  legato 1 #
+  octave 4 #
+  gain 0.72
+, struct (sync') $
+  n "<af ~ fs ~ f ~ ef ~>" #
+  s "superchip" #
+  octave 2 #
+  gain 1.25
+  ]),
+(136, 144, stack [
+  bite 8 (segment 16 $ irand 8) $
+  n (scale "major" "[0 .. 7]" + "df") #
+  s "<supertron>" #
+  legato (range 0.25 1 $ slow 32 sine) #
+  octave "4 5" #
+  gain 0.72
+, off 0.25 (slow 4) $
+  bite 8 (segment 16 $ irand 4) $
+  n (arp "down up" "fs'6by9'8") #
+  s "<superhoover>" #
+  legato 0.25 #
+  octave 4 #
+  gain 1
+, struct (sync') $
+  n "<af'sus2 ~ fs'sus2 ~ f'min ~ ef'm7 ~>" #
+  s "superzow" #
+  legato 1 #
+  octave 4 #
+  gain 0.72
+, struct (sync') $
+  n "<af ~ fs ~ f ~ ef ~>" #
+  s "superchip" #
+  octave 2 #
+  gain 1.25
+, stack [
+    struct (binary 130) $
+    s "clubkick"
+  , struct "<t*16>" $
+    s "linnhats" #
+    gain 0.88
+    ]
+  ]),
+(144, 156, stack [
+  bite 8 (segment 16 $ irand 8) $
+  n (scale "major" "[0 .. 7]" + "df") #
+  s "<supertron>" #
+  legato (range 0.25 1 $ slow 32 sine) #
+  octave "4 5" #
+  gain 0.72
+, off 0.25 (slow 4) $
+  bite 8 (segment 16 $ irand 4) $
+  n (arp "down up" "fs'6by9'8") #
+  s "<supermandolin>" #
+  legato 2 #
+  octave "4 3 5 4" #
+  gain 1.4
+, struct (sync') $
+  ncat [
+  (6, n "<fs'sus2 [~ ef'm7] f'min>" # s "superzow" # legato 1 # octave 4 # gain 0)]
+, struct (binary "<130 150>") $
+  ncat [
+  (6, n "<[~ ef] f fs [~ af] bf b>" #
+  s "superchip" #
+  octave 2 #
+  gain 1.25)]
+, stack [
+    struct (binary "<130 150>") $
+    s "clubkick"
+  , struct "t*16" $
+    s "linnhats" #
+    gain 0.88
+    ]
+  ]),
+(156, 172, stack [
+  bite 8 (segment 16 $ irand 8) $
+  n (scale "minPent" "[0 .. 7]" + "bf4") #
+  s "<supersquare>" #
+  legato (range 0.25 1 $ slow 32 sine) #
+  octave "5 6" #
+  gain 0.79
+, off 0.25 (slow 4) $
+  bite 8 (segment 16 $ irand 4) $
+  n (arp "down up" "fs'sus2'4 f'min'4") #
+  s "<supermandolin>" #
+  legato 2 #
+  octave "4 3 5 4" #
+  gain 1.4
+, struct (binary "<130 150>") $
+  ncat [
+  (8, n "<fs'sus2 ef'm7 f'min fs'sus2>")
+, (4, n "<fs'sus2 f'm7 af'm7 ef'7sus4>")] #
+  s "superzow" #
+  legato 1 #
+  octave 4 #
+  gain 0.72
+, struct "t" $
+  ncat [
+  (8, n "<fs ef f fs>")
+, (4, n "<fs f af ef>")] #
+  s "superchip" #
+  legato 1 #
+  octave 2 #
+  gain 1.25
+, stack [
+    fast 2 $
+    struct (binary "<130 150>") $
+    s "clubkick"
+  , struct "t*16" $
+    s "linnhats" #
+    gain 0.88
+  , struct "0101" $
+    s "cp"
+    ]
+  ]),
+(172, 188, stack [
+  struct "<t*4 t*6>" $ ncat [
+  (8, n "<fs'sus2 ef'm7 f'min fs'sus2>")
+, (4, n "<fs'sus2 f'm7 af'm7 ef'7sus4>")] #
+  s "superzow" #
+  legato 1 #
+  octave 4 #
+  gain 0.72
+, struct "<t*4 t*6>" $
+  n "<df!3 af>" #
+  s "superchip" #
+  octave 3 #
+  gain 1.15
+, stack [
+    s "clubkick"
+  , fast 2 $ struct "<t*4 t*6>" $
+    s "linnhats" #
+    gain 0.88
+  , struct "[][][][<t*4 [~ t]>]" $
+    s "cp"
+    ]
+  ]),
+(188, 204, (# lpf (range 5000 20000 $ slow 16 sine)) $ stack [
+  struct "<t*4 t*6 t*8!2>" $ ncat [
+  (6, n "<fs'sus2 ef'm7 f'min>")
+, (6, n "<f'm7 af'm7 ef'7sus4>")] #
+  s "[superzow, supersaw]" #
+  legato 1 #
+  octave 4 #
+  gain 0.66
+, ncat [
+  (6, (+| n "{0 12 [7 0*2]@2 -12}%[6]") $ n (arp "down converge down" "<fs'sus2'3 ef'm7'6 f'min'3>"))
+, (6, (+| n "{0 -12 [-5*2 0]@2 12}%[6]") $ n (arp "up diverge up" "<f'm7'3 af'm7'6 ef'7sus4'3>"))] #
+  s "[supertron, supersquare]" #
+  legato 1 #
+  octave 4 #
+  gain 0.72
+  ]),
+(204, 220, (# lpf (range 5000 20000 $ slow 16 sine)) $ stack [
+  while "<f!8 t!8>" (struct "t*16?0.125") $
+  ncat [
+  (6, (+| n "{0 12 [0 0*2]@2 -12}%[6]") $ n (arp "down converge down" "<bf'm7'4>"))] #
+  s "[supertron, supersquare]" #
+  legato 1 #
+  octave "<3!8 4!8>" #
+  gain 0.72
+, trunc "<0.5 1 0.75 0.75>" $
+  ncat [
+  (8, (+| n "{0 0 12 0}%[<8 16 8 8>]") $ n (arp "{up}%6" "<fs [~ [af f]] ef'm7s5'3 bf'm7'3>"))] #
+  s "[superchip]" #
+  legato 1 #
+  octave 2 #
+  gain 1.1
+, s "clubkick"
+, struct "0101" $
+  s "cp" #
+  gain 1.15
+  ]),
+(220, 236, stack [
+  trunc "<0.5 1 0.75 0.75>" $
+  ncat [
+  (8, (+| n "{0 0 12 0}%[<8 16 8 8>]") $ n (arp "{up}%6" "<fs [~ [af f]] ef'm7s5'3 bf'm7'3>"))] #
+  s "[superchip]" #
+  legato 1 #
+  octave 2 #
+  gain 1.1
+, struct (binaryN 8 "<0540540 44475777>") $
+  s "clubkick"
+, struct "t*16" $
+  s "linnhats"
+, struct "0101" $
+  s "cp" #
+  gain 1.15
+  ]),
+(236, 252, stack [
+  while "<t t f f>" (# gain 0) $
+  off 0.25 (|+ n "-12") $
+  ncat [
+  (8, (+| n "{0 12 -12 [0*2 [12 0]]@4}%16") $ n (arp "{down converge down}%16" "<fs'sus2'3!3 bf'm7'3>"))] #
+  s "[supermandolin]" #
+  legato 4 #
+  octave "<4 4 5 4>" #
+  gain 1.4
+, trunc "<0.5 1 0.75 0.75>" $
+  ncat [
+  (8, (+| n "{0 0 12 0}%[<8 16 8 8>]") $ n (arp "{up}%6" "<fs [~ [af f]] ef'm7s5'3 bf'm7'3>"))] #
+  s "[superchip]" #
+  legato 1 #
+  octave 2 #
+  gain 1.1
+, struct (binaryN 8 "<0540540 44475777>") $
+  s "clubkick"
+, ncat [
+  (2, struct "t*16" $ s "linnhats" # gain 0.88)
+, (2, fast 2 $ struct (binaryN 8 "<0540540 44475777>") $ s "linnhats" # gain 0.88)]
+, degradeBy 0.9 $
+  struct ((inv)(binaryN 8 "<0540540 44475777>")) $
+  s "cp" #
+  gain 1.15
+  ]),
+(252, 268, stack [
+  while "<f!4 t!4>" ((# s "superchip").(# octave "3 4").(# legato 0.5).(# gain 0.95)) $
+  shuffle 4 $
+  off 0.25 (|+ n "-12") $
+  ncat [
+  (8, (+| n "{0 12 -12 [0*2 [12 0]]@4}%16") $ n (arp "{down converge down}%16" "<fs'sus2'3!3 bf'm7'3>"))] #
+  s "[supermandolin]" #
+  legato 4 #
+  octave "<4 4 5 4>" #
+  gain 1.4
+, n "~ ~ ~ [~ df]" #
+  s "superpiano" #
+  octave 6 #
+  legato 0.25
+, struct (binaryN 8 "<714412 44475777>") $
+  n "<fs!8 ef!4 fs!4>" #
+  s "superchip" #
+  octave 2
+, struct (binaryN 8 "<714412 44475777>") $
+  s "clubkick"
+, ncat [
+  (2, struct "t*16" $ s "linnhats" # gain 0.88)
+, (2, fast 2 $ struct (binaryN 8 "<714412 44475777>") $ s "linnhats" # gain 0.88)]
+, struct "0101" $
+  s "cp" #
+  gain 1.15
+  ]),
+(268, 284, stack [
+  slow 4 $
+  shuffle 4 $
+  off 0.25 (|+ n "-12") $
+  ncat [
+  (8, (+| n "{0 12 -12 [0*2 [12 0]]@4}%16") $ n (arp "{down converge down}%16" "<df'maj9'3!3>"))] #
+  s "[supermandolin]" #
+  legato 8 #
+  octave "<6 6 5 4>" #
+  gain 1.3 #
+  coarse 6
+, n "~ ~ ~ [~ df]" #
+  s "superpiano" #
+  octave 6 #
+  legato 0.25
+, struct (binaryN 8 "<714412 44475777>") $
+  n "<bf af fs f fs f ef df>" #
+  s "superchip" #
+  octave 2
+, struct (binaryN 8 "<714412 44475777>") $
+  s "clubkick"
+, ncat [
+  (2, struct "t*16" $ s "linnhats" # gain 0.88)
+, (2, fast 2 $ struct (binaryN 8 "<714412 44475777>") $ s "linnhats" # gain 0.88)]
+, struct "01" $
+  s "cp" #
+  gain 1.15
+  ]),
+(284, 300, stack [
+  slow 4 $
+  shuffle 4 $
+  off 0.25 (|+ n "-12") $
+  ncat [
+  (8, (+| n "{0 12 -12 [0*2 [12 0]]@4}%16") $ n (arp "{down converge down}%16" "<df'maj9'3!3>"))] #
+  s "[supermandolin]" #
+  legato 8 #
+  octave "<6 6 5 4>" #
+  gain 1.3 #
+  coarse 6
+, n "~ ~ ~ [~ df]" #
+  s "superpiano" #
+  octave 6 #
+  legato 0.25
+, ncat [
+  (8, n "<bf'm7 af'six fs'sus2 f'm7s5 fs'maj f'm7s5 ef'9sus4 df'9sus4>")
+, (8, n "<bf'm7 af'six fs'sus2 f'm7s5 fs'maj f'm7s5 ef'9sus4 df'maj>")] #
+  s "superchip" #
+  octave 4 #
+  gain 0.77
+, struct (binaryN 8 "<714412 44475777>") $
+  n "<bf af fs f fs f ef df>" #
+  s "superchip" #
+  octave 2
+  ])
+]}
+
+236+16
+
+hush
+
+
+
+
+
+
+
+
+
+
+
+
+x

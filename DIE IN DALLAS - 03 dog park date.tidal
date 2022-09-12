@@ -1,0 +1,656 @@
+hush
+
+
+d1
+$ trigger 1
+$ seqPLoop [
+(0, 8, stack [
+  n (scale "hexPhrygian" "[0 <1 2 <3 5>>]" + "ef") #
+  s "supermandolin" #
+  legato "4" #
+  octave 4 #
+  gain 1.5
+, struct ("t(6,12,1)") $
+  n "<[a'add9 b'add9] [df'7sus2 b'maj] [ef'm7s5 e'maj] [ef'm7s5 e'maj]>" #
+  s "supertron" #
+  legato 0.25 #
+  octave 5 #
+  gain 0.72
+, struct "t(12,8)" $
+  n "[a'maj@3 af'mS5] [e'maj9@3 ef'9s5]" #
+  s "[supersquare, supergrind]" #
+  octave 4 #
+  legato "0.25!7 0.5" #
+  gain 0.89
+, struct "t(12,8)" $
+  n "<a!2 b!2 df6!2 e6!2>" #
+  s "[superchip]" #
+  octave 2 #
+  legato 0.8 #
+  gain 1.15
+, struct "t(12,8)?0.75" $
+  s "[clubkick]"
+, struct ("t(6,12,1)?") $
+  s "linnhats"
+, s "~ cp" #
+  gain 1.24
+  ]),
+(8, 16, stack [
+  off 0.25 (|+ n 12) $
+  n (scale "hexPhrygian" "[0 <3*2 4*3 <6 7>>]" + "ef") #
+  s "supermandolin" #
+  legato "4" #
+  octave 4 #
+  gain 1.5
+, n "<[a b] [e af] a@2>" #
+  s "[superchip]" #
+  octave 2 #
+  legato 1 #
+  gain 1.15
+, struct "t(12,8)?0.75" $
+  s "[clubkick]"
+, struct "t*4" $
+  s "linnhats"
+, struct "0011" $
+  s "cp" #
+  gain 1.24
+  ]),
+(16, 24, stack [
+  off 0.25 (|+ n 12) $
+  n (scale "hexPhrygian" "[<0 ~> <3*2 4*3 <6 7>>]" + "ef") #
+  s "supermandolin" #
+  legato "4" #
+  octave 4 #
+  gain 1.5
+, struct ("t(6,12,1)") $
+  n "<[a'add9 b'add9] [df'7sus2 b'maj] [ef'm7s5 e'maj] [ef'm7s5 e'maj]>" #
+  s "supertron" #
+  legato 0.25 #
+  octave 5 #
+  gain 0.72
+, n "<[a b] [e af] a@2>" #
+  s "[superchip]" #
+  octave 2 #
+  legato 1 #
+  gain 1.15
+, struct "t(12,8)?0.75" $
+  s "[clubkick]"
+, struct "<t*6!2 t*4!2>" $
+  s "linnhats"
+, struct "0011" $
+  s "cp" #
+  gain 1.24
+  ]),
+(24, 32, stack [
+  off 0.25 (|+ n 12) $
+  n (scale "hexPhrygian" "[~ 1 ~ <[~ 3 ~] [~ 4 ~] <6*3 7*3>>]" + "ef") #
+  s "supertron" #
+  legato "0.5 0.25" #
+  octave "4 5 4 4" #
+  gain 0.74
+, n "<[a b df6 e fs] [af b e fs af] a e>" #
+  s "[superchip]" #
+  octave 2 #
+  legato 1 #
+  gain 1.15
+, struct "t(12,8)?0.75" $
+  s "[clubkick]"
+, struct "<[t*12]!2 t*4!2>" $
+  s "linnhats"
+, struct "0001" $
+  s "cp" #
+  gain 1.24
+  ]),
+(32, 48, stack [
+  off 0.25 (|+ n 12) $
+  n (scale "hexPhrygian" "[~ 1 ~ <[~ 3 ~] [~ 4 ~] <6*3 7*3>>]" + "ef") #
+  s "supertron" #
+  legato "0.5 0.25" #
+  octave "5 4 5 5" #
+  gain 0.74
+, n "<[~ b4'6by9'iii] [df'7sus2 ~] [ef'm7s5 e'maj] [~ e'maj]>" #
+  s "[supersquare, supergrind]" #
+  legato 1 #
+  octave 4 #
+  gain 0.77
+, n "<[a ~ ~ b] [~ ~ fs af] a [e e6]>" #
+  s "[superchip]" #
+  octave 2 #
+  legato 1 #
+  gain 1.15
+, struct "t" $
+  s "[clubkick]"
+, struct "<[t*12]!2 t*4!2>" $
+  s "linnhats"
+, struct "00010[1*2]" $
+  s "cp" #
+  gain 1.24
+  ]),
+(48, 64, stack [
+  ncat [
+    (4, off 0.25 (|+ n 12) $
+    n (scale "hexPhrygian" "[~ 1 ~ <[~ 3 ~] [~ 4 ~] <6*3 7*3>>]" + "ef") #
+    s "supermandolin" #
+    legato 4 #
+    octave "5 4 5 5" #
+    gain 1.4)
+  , (4, off 0.25 (|+ n 12) $
+    ply 2 $
+    slow 4 $
+    (+| n ("[0 -12 0 -12]*{6 3}%2")) $
+    n (arp "up" "<[e'6by9'8] e'sus2'8>") #
+    s "supermandolin" #
+    legato 4 #
+    octave 5 #
+    gain 1.5)]
+, struct "<[t*6] [t*6] [t*4] [t*6]>" $
+  n "<[~ b4'6by9'iii] [df'7sus2 ~] [ef'm7s5 e'maj] [~ e'maj]>" #
+  s "[supersquare, supergrind]" #
+  legato 1 #
+  octave 4 #
+  gain 0.74
+, struct "t*12" $
+  n "<[a ~ ~ b] [~ ~ fs af] a [e e6]>" #
+  s "[superchip]" #
+  octave 2 #
+  legato 1 #
+  gain 1.15
+, struct "{t ~ ~ t t}%<12 6>" $
+  s "clubkick"
+, struct "t*12?0.25" $
+  s "linnhats"
+, struct "00010[1*2]" $
+  s "cp" #
+  gain 1.24
+  ]),
+(64, 80, stack [
+  off 0.25 (|+ n 12) $
+  ply 2 $
+  slow 4 $
+  (+| n ("[0 -12 0 -12]*{6 3}%2")) $
+  n (arp "up" "<[e'6by9'8] e'sus2'8 b4'sus2'6>") #
+  s "supermandolin" #
+  legato 4 #
+  octave 5 #
+  gain 1.5
+, n "<[~ b4'6by9'iii] [df'7sus2 ~] [ef'm7s5 e'maj] [~ e'maj]>" #
+  s "[supersquare, supergrind]" #
+  legato 0.25 #
+  octave 5 #
+  gain 0.75
+, struct "t*12" $
+  ncat [(11, n "<b4 a4 [af4@0.35 a4@0.65] b4 df e a4 b4 af4 a4 af4>")] #
+  s "superchip" #
+  octave 3 #
+  gain 1.15
+, struct "{t ~ ~ t t}%<12 6>" $
+  s "clubkick"
+, struct "t*12?0.25" $
+  s "linnhats"
+, (0.25 ~>) $
+  struct "{t ~ ~ t <t ~>}%<12 6>" $
+  s "cp"
+]),
+(80, 96, stack [
+  off 0.25 ((|+ n "0 12 0 0").(# s "superzow").(# gain 0.91).(# legato "0.25!3 1").(# octave 4)) $
+  slow 4 $
+  (+| n ("[0 -12 0 -12]*{6 3}%2")) $
+  n (arp "up" "<[e'6by9'8] e'sus2'8 b4'sus2'6>") #
+  s "supermandolin" #
+  legato 4 #
+  octave 5 #
+  gain 1.5
+, n "<[~ e'maj] [~ df'm7] [~ e4'six'iii] [~ [a4'add9 b4'sus2]]>" #
+  s "[supersaw,supergrind]" #
+  gain 0.74
+, struct "t*12" $
+  n "<b4 a4 [af4@0.35 a4@0.65] b4 df e a4 b4 af4 a4 af4>" #
+  s "superchip" #
+  octave 3 #
+  gain 1.15
+, struct "[~ t ~] [] [t] [~ ~ t*2]" $
+  s "[clubkick, linnhats]"
+, struct "[] [] [~ ~ t] []" $
+  s "cp" #
+  gain 1.25
+]),
+(96, 104, stack [
+  struct "<t*8!2 [t*8 t*6]>" $
+  n "<e6!2 [e'sus2 df4'm7] [e6 af6]>" #
+  s "superzow" # gain 0.66
+, struct "t*12" $
+  n "<[~ e'maj] [~ df'm7] [~ e4'six'iii] [~ [a4'add9 b4'sus2]]>" #
+  s "[supersaw,superhoover]" #
+  octave 4 #
+  legato 1 #
+  gain 0.88
+, struct "<t*8!2 [t*8 t*6]>" $
+  ncat [(11, n "<b4 a4 [af4@0.35 a4@0.65] b4 df d a4 b4 af4 a4 af4>")] #
+  s "superchip" #
+  legato 0.8 #
+  octave 3 #
+  gain 1.15
+]),
+(104, 120, stack [
+  struct "t*12" $
+  n "<[~ e'maj] [~ df'm7] [~ e4'six'iii] [~ [a4'add9 b4'sus2]]>" #
+  s "[supersaw,superhoover]" #
+  octave 4 #
+  legato 0.5 #
+  gain 0.95
+, struct "<t*8!2 [t*8 t*6]>" $
+  ncat [(11, n "<b4 a4 [af4@0.35 a4@0.65] b4 df d a4 b4 af4 a4 af4>")] #
+  s "superchip" #
+  legato 0.8 #
+  octave 3 #
+  gain 1.15
+, struct "<[t*2 ~]!2 [t*8 t*6]>" $
+  s "[clubkick]"
+, struct "<t*8!2 [t*8 t*6]>" $
+  s "linnhats"
+, struct "[] [] [<t ~> ~ t] []" $
+  s "cp" #
+  gain 1.25
+]),
+(120, 128, stack [
+  off 0.25 (palindrome) $
+  slow 6 $
+  n (arp "converge" "fs'9sus4'8") #
+  s "supersquare" #
+  legato 4 #
+  octave 4 #
+  gain 0.66
+, struct "<t*8!2 [t*4 t*6]>" $
+  n "<a4!7 af4>" #
+  s "superchip" #
+  legato 0.8 #
+  octave 3 #
+  gain 1.15
+, struct "<[t*4 <~>]!2 [t*4 t*6]>" $
+  s "[clubkick]"
+, struct "<t*8!2 [t*8 t*6]>" $
+  s "linnhats"
+, struct "<[]!2 [~ ~ t]>" $
+  s "cp" #
+  gain 1.25
+  ]),
+(128, 136, stack [
+  struct "<t*8!2 [t*8 t*6]>" $
+  n "<e'maj9!7 [af'm7 af'7sus4]>" #
+  s "superzow" #
+  legato 0.5 #
+  gain 0.72
+, struct "<t*8!2 [t*8 t*6]>" $
+  n "<a4!7 af4>" #
+  s "superchip" #
+  legato 0.8 #
+  octave 3 #
+  gain 1.15
+, struct "<[t*2 ~]!2 [t*8 t*6]>" $
+  s "[clubkick]"
+, struct "<t*8!2 [t*8 t*6]>" $
+  s "linnhats"
+, struct "[] [] [<t ~> ~ t] []" $
+  s "cp" #
+  gain 1.25
+]),
+(136, 144, stack [
+  fast 1 $ n (scale "minPent" "{<-1*2 -2*2 -5*5>, <[1 0 <-1 -3 -6> -2] 2 <3 5 6 7>>}%3" + "af") #
+  s "supermandolin" #
+  legato 4 #
+  octave 5 #
+  gain 1.4
+, struct "<t*8!2 [t*8 t*6]>" $
+  n "<e'maj9!7 [af'm7 af'7sus4]>" #
+  s "superzow" #
+  legato 0.5 #
+  gain 0.72
+, struct "<t*8!2 [t*8 t*6]>" $
+  n "<a4!7 af4>" #
+  s "superchip" #
+  legato 0.8 #
+  octave 3 #
+  gain 1.15
+, struct "<t*8!2 [t*8 t*6]>" $
+  s "linnhats"
+]),
+(144, 152, stack [
+  struct "<t*8!2 [t*8 t*3]>" $
+  n (scale "minPent" "{<-1*2 -2*2 -5*5>, <[1 0 <-1 -3 -6> -2] 2 <3 5 6 7>>}%3" + "af") #
+  s "supermandolin" #
+  legato 4 #
+  octave 5 #
+  gain 1.4
+, struct "<t*8!2 [t*8 t*3]>" $
+  n "<e'maj9!7 [af'm7 af'7sus4]>" #
+  s "superzow" #
+  octave 4 #
+  legato 0.5 #
+  gain 0.72
+, struct "<f*8!2 [f*8 t*3]>" $
+  n "<a4!7 af4>" #
+  s "superchip" #
+  legato 0.8 #
+  octave 3 #
+  gain 1.15
+, struct "<f*8!2 [f*8 t*3]>" $
+  s "clubkick"
+, struct "<t*8!2 [t*8 t*3]>" $
+  s "linnhats"
+]),
+(152, 160, stack [
+  struct "<f*8!2 [f*8 t*3]>" $
+  n "<a4!7 af4>" #
+  s "superchip" #
+  legato 0.8 #
+  octave 3 #
+  gain 1.15
+, struct "<f*8!2 [f*8 [t t f]]>" $
+  s "clubkick"
+, struct "t(6,8,3)" $
+  s "linnhats"
+, struct "<f*8!2 [f*8 [f f t]]>" $
+  s "cp" #
+  gain 1.25
+]),
+(160, 168, stack [
+  struct "<t*8!2 [t*8 t*3]>" $
+  n "<[a'sus2, <af!7 fs>] fs'm7>" #
+  s "[superzow,supergrind]" #
+  legato "<0.5!2 [0.5 1]>" #
+  octave 4 #
+  gain 0.66
+, struct "<f*8!2 [f*8 t*3]>" $
+  n "<a4!7 af4>" #
+  s "superchip" #
+  legato 0.8 #
+  octave 3 #
+  gain 1.15
+, struct "<f*8!2 [f*8 [t t f]]>" $
+  s "clubkick"
+, fast "<2 [1 2]>" $
+  struct (binary 666) $ s "linnhats"
+, struct "<f*8!2 [f*8 [f f t]]>" $
+  s "cp" #
+  gain 1.25
+]),
+(168, 176, stack [
+  slow 2 $
+  n (scale "minPent" "[<0 -1 -4> [1 [2 <4 5>]]]" + "af") #
+  s "supergrind" #
+  legato 2 #
+  octave "<5 4>" #
+  gain 0.84 #
+  voice (range 0.25 0.75 $ slow 12 sine)
+, slow 2 $
+  n (scale "minPent" "[0 [1 [2 <4 5>]]]" + "af") #
+  s "supertron" #
+  legato 2 #
+  octave "<3 4 5>" #
+  gain 0.66 #
+  voice (range 0.25 0.75 $ slow 12 sine)
+, struct "<t*8!2 [t*8 t*3]>" $
+  n "<[a'sus2, <af!7 fs>] fs'm7>" #
+  s "[superzow,supergrind]" #
+  legato "<0.5!2 [0.5 1]>" #
+  octave 4 #
+  gain 0.66
+, struct "<f*8!2 [f*8 t*3]>" $
+  n "<a4!7 af4>" #
+  s "superchip" #
+  legato 0.8 #
+  octave 3 #
+  gain 1.15
+, struct "<f*8!2 [f*8 [t t f]]>" $
+  s "clubkick"
+, fast "<2 [1 2]>" $
+  struct (binary 666) $
+  s "linnhats"
+, struct "<f*8!2 [f*8 [f f t]]>" $
+  s "cp" #
+  gain 1.25
+]),
+(176, 184, stack [
+  slow 2 $
+  n (scale "minPent" "[<0 -1 -4> [1 [2 <4 5>]]]" + "af") #
+  s "supergrind" #
+  legato 2 #
+  octave "<5 4>" #
+  gain 0.77 #
+  voice (range 0.25 0.75 $ slow 12 sine)
+, slow 2 $
+  n (scale "minPent" "[0 [1 [2 <4 5>]]]" + "af") #
+  s "supertron" #
+  legato 2 #
+  octave "<3 4 5>" #
+  gain 0.66 #
+  voice (range 0.25 0.75 $ slow 12 sine)
+, struct "<t!2 [t t*3]>" $
+  n "<af a [b e] fs>" #
+  s "superchip" #
+  legato 1 #
+  octave 2 #
+  gain 1.15
+, struct "<f*8!2 [f*8 [t t f]]>" $
+  s "clubkick"
+, fast "<2 [1 2]>" $
+  struct (binary 666) $
+  s "linnhats"
+, struct "<f*8!2 [f*8 [f f t]]>" $
+  s "cp" #
+  gain 1.25
+]),
+(184, 200, stack [
+  bite 4 "<[0*8 <0*4 0*6 0*4 0*3>]>" $ stack [
+  slow 2 $
+  n (scale "minPent" "[<0 -1 -4> [1 [2 <4 5>]]]" + "af") #
+  s "supergrind" #
+  legato 2 #
+  octave "<5 4>" #
+  gain 0.77 #
+  voice (range 0.25 0.75 $ slow 12 sine)
+, slow 2 $
+  n (scale "minPent" "[0 [1 [2 <4 5>]]]" + "af") #
+  s "supertron" #
+  legato 2 #
+  octave "<3 4 5>" #
+  gain 0.66 #
+  voice (range 0.25 0.75 $ slow 12 sine)
+, n "<b4'sus4'iii fs4'sus2'iii af'm7 a'sus2>" #
+  s "superhoover" #
+  legato 1 #
+  octave 4 #
+  gain 0.88
+, n "<b fs af a>" #
+  s "superchip" #
+  legato 1 #
+  octave 2 #
+  gain 1.15
+, degrade $ s "clubkick"
+, struct (binary 666) $
+  s "linnhats"
+  ]
+, struct "<f*8!2 [f*8 [f f t]]>" $
+  s "cp" #
+  gain 1.25
+]),
+(200, 216, stack [
+  bite 4 "<[0*8 <0*4 0*6 0*4 0*3>]>" $ stack [
+  slow 2 $ n (scale "minPent" "[<0 -1 -4> [1 [2 <4 5>]]]" + "af") #
+  s "supergrind" #
+  legato 2 #
+  octave "<5 4>" #
+  gain 0.77 #
+  voice (range 0.25 0.75 $ slow 12 sine)
+, slow 2 $
+  n (scale "minPent" "[0 [1 [2 <4 5>]]]" + "af") #
+  s "supertron" #
+  legato 2 #
+  octave "<3 4 5>" #
+  gain 0.66 #
+  voice (range 0.25 0.75 $ slow 12 sine)
+, n "<b4'sus4'iii fs4'sus2'iii af'm7 a'sus2>" #
+  s "superhoover" #
+  legato 1 #
+  octave 4 #
+  gain 0.84
+, n "<b fs af a>" #
+  s "superchip" #
+  legato 1 #
+  octave 2 #
+  gain 1.15
+, degrade $ s "clubkick"
+, s "linnhats"
+  ]
+, struct "0101" $
+  s "cp" #
+  gain 1.25
+, n "{e fs [af|b]}%16" #
+  s "supertron" #
+  gain 0.72 #
+  octave "<5 [4 5 4 6]>"
+]),
+(216, 232, stack [
+  bite 4 "<[0*8 <0*4 0*6 0*4 0*3>]>" $ stack [
+  n "<b4'sus4'iii fs4'sus2'iii af'm7 a'sus2>" #
+  s "superhoover" #
+  legato 1 #
+  octave 4 #
+  gain 0.84
+, n "<b fs af a>" #
+  s "superchip" #
+  legato 1 #
+  octave 2 #
+  gain 1.15
+, s "linnhats"
+  ]
+, fast 2 $ off 0.25 (|+ n 12) $
+  n (scale "hexPhrygian" "{[0 <3*2 4*4@2 <6 7 -2>>]}" + "ef") #
+  s "supertron" #
+  legato 1 #
+  octave "4 5" #
+  gain 0.72
+, struct "[t [~ t] ~ ~]" $
+  s "clubkick"
+, struct "0101" $
+  s "cp" #
+  gain 1.25
+]),
+(232, 248, stack [
+  fast 2 $
+  off 0.25 (|+ n 12) $
+  n (scale "hexPhrygian" "{[0 <3*2 4*4@2 <6 7 -2>>]}" + "ef") #
+  s "supertron" #
+  legato 1 #
+  octave 4 #
+  gain 0.72
+, n "<b4'sus4'iii fs4'sus2'iii af'm7 a'sus2>" #
+  s "superhoover" #
+  legato 1 #
+  octave 4 #
+  gain 0.84
+, n "<b fs af a>" #
+  s "superchip" #
+  legato 1 #
+  octave 2 #
+  gain 1.15
+, struct "[t [~ t] ~ ~]" $
+  s "clubkick"
+, s "linnhats"
+, struct "0101" $
+  s "cp" #
+  gain 1.25
+]),
+(248, 256, stack [
+  fast 2 $
+  off 0.25 (|+ n 12) $
+  n (scale "hexPhrygian" "{[0 <3*2 4*4@2 <6 7 -2>>]}" + "ef") #
+  s "supertron" #
+  legato 1 #
+  octave 4 #
+  gain 0.72
+, n "<b4'sus4'iii fs4'sus2'iii af'm7 a'sus2>" #
+  s "superhoover" #
+  legato 1 #
+  octave 4 #
+  gain 0.84
+, n "<b fs af a>" #
+  s "superchip" #
+  legato 1 #
+  octave 2 #
+  gain 1.15
+]),
+(256, 272, stack [
+  while "<t!8 f!8>" (off 0 (# n "<b fs af a>")) $
+  fast 2 $
+  off 0.25 (|+ n 12) $
+  n (scale "hexPhrygian" "{[0 <3*2 4*4@2 <6 7 -2>>]}" + "ef") #
+  s "superchip" #
+  legato "<2!16 1!16>" #
+  octave "<4!16 5!16>" #
+  gain 0.92 #
+  coarse 6
+, while "<t!8 f!8>" (# gain 0) $
+  fast 2 $
+  off 0.25 (|+ n 12) $
+  n (scale "hexPhrygian" "{[0 <3*2 4*4@2 <6 7 -2>>],<5 <4 2>>}" + "ef") #
+  s "[supermandolin]" #
+  legato 4 #
+  octave "4 5 4" #
+  gain 1.4 #
+  coarse 8
+, while "<t!8 f!8>" (# gain 0) $
+  n "<b df6 b a [af a] b a []>" #
+  s "superchip" #
+  legato 1 #
+  octave 2 #
+  gain 1.15
+]),
+(272, 288, stack [
+  while "<f!7 t>" ((lingerAt (0.5,0.75) . slow 2 . plyWith 1 (0.125 <~))) $ stack [
+  fast 2 $
+  off 0.25 (|+ n 12) $
+  n (scale "hexPhrygian" "{[0 <3*2 4*4@2 <6 7 -2>>],<5 <4 2>>}" + "ef") #
+  s "[superzow, supersquare]" #
+  legato "0.5 2" #
+  octave "4 5 4" #
+  gain 0.67 #
+  coarse 8
+, off 0.5 (+| n "{0 12 0 -12}%12") $
+  n (arp "down" "af'm7'6") #
+  s "supermandolin" #
+  legato (range 0.25 0.75 $ slow 8 sine) #
+  legato 4 #
+  octave 4 #
+  gain 1.4
+, n "<b df6 b a [af a] b a []>" #
+  s "superchip" #
+  legato 1 #
+  octave 2 #
+  gain 1.15
+  ]
+, stack [
+    struct "<[t*2 ~] [~ [] [~ [~]] [t]] [t] [~ [~ t*3]]>" $
+    s "clubkick"
+  , struct "t*12" $
+    s "linnhats"
+  , s "~ cp" # gain 1.25
+  ]
+])
+]
+
+288+16
+
+
+hush
+
+
+d1 $
+
+
+
+
+
+
+
+hush
